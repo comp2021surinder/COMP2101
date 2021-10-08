@@ -21,15 +21,15 @@
 #     tell the user you changed the current hostname and they should reboot to make sure the new name takes full effect
 #e.g. hostnamectl set-hostname $newname
 
-oldhostname=$(hostname)
+myhostname=$(hostname)
 
-echo The current hostname is $oldhostname
+echo The current hostname is $myhostname
 
 read -p "studentnumber" studentnumber
 
-newname=pc$studentnumber
-echo The desired hostname you entered is $newname
+newhostname=pc$studentnumber
+echo The desired hostname you entered is $newhostname
 
-grep -q $oldhostname /etc/hosts && sed -i "s/$oldhostname/$newhostname/" /etc/hosts && echo "The name is changed"
+grep -q $myhostname /etc/hosts && sed -i "s/$myhostname/$newhostname/" /etc/hosts && echo "The name is changed"
 
-grep -q $oldhostname /etc/hosts && hostnamectl set-hostname $newname && echo "Hostname is changed, you should reboot now!"
+grep -q $newhostname /etc/hosts && hostnamectl set-hostname $newhostname && echo "Hostname is changed, you should reboot now!"
