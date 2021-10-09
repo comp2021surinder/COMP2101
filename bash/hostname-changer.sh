@@ -31,5 +31,8 @@ newhostname=pc$studentnumber
 echo The desired hostname you entered is $newhostname
 
 grep -q $myhostname /etc/hosts && sed -i "s/$myhostname/$newhostname/" /etc/hosts && echo "The name is changed"
+if [[ $myhostname != $newhostname ]] ;
+  then  hostnamectl set-hostname $newhostname; fi
+echo "Hostname is changed, you should reboot now!"
 
-grep -q $newhostname /etc/hosts && hostnamectl set-hostname $newhostname && echo "Hostname is changed, you should reboot now!"
+
