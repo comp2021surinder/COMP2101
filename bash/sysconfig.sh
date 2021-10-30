@@ -31,11 +31,11 @@ return
 #This function displays help information if the user asks for it on the command line or gives us a bad command line
 function displayhelp {
         case "$1" in
-		-h )
-			;;
-		* )
-			argument1+=("$1")
-			;;
+		-h | --help )
+	        ;;
+	* )
+		argument1+=("$1")
+		;;
 	esac
 
 }
